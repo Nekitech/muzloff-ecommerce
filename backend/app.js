@@ -1,18 +1,16 @@
 import express from 'express'
 import cors from 'cors'
-import userRouter from './routes/user.routes.js'
 import {graphqlHTTP} from "express-graphql";
 import {schema} from "./graphql/schema.js";
-
+import {root} from "./graphql/rootResolver.js";
 const app = express();
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 app.use(cors())
-app.use(express.json())
-app.use('/api', userRouter)
 app.use('/graphql', graphqlHTTP({
     graphiql: true,
-    schema: schema
+    schema: schema,
+    rootValue: root
 
 }))
 

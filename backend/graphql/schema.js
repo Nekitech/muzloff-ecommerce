@@ -1,12 +1,8 @@
-import {buildSchema} from "graphql/utilities/index.js";
+import {buildSchema} from "graphql/utilities/index.js"
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs'
 
-const schemaString = `
-    type User {
-    id: ID,
-    username: String,
-    surname: String,
-    age: Int
-}
-`
+const pathScheme = dirname(fileURLToPath(import.meta.url)) + '\\user.graphql';
 
-export const schema = buildSchema(schemaString)
+export const schema = buildSchema(fs.readFileSync(pathScheme, {encoding: 'utf8'}))

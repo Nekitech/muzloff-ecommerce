@@ -1,9 +1,9 @@
 import Pool from 'pg'
 
-export const pool = new Pool.Pool({
+export const connectDB = new Pool.Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'muzzlof',
+    database: 'muzloff',
     password: '347389',
     port: 5432,
 })

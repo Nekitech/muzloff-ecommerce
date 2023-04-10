@@ -1,6 +1,36 @@
 type User {
     id: ID,
-    username: String,
-    surname: String,
-    age: Int
+    name: String,
+    phone_number: String,
+    email: String
+#    age: Int
+}
+input UserInput {
+    id: ID,
+    name: String,
+    phone_number: String,
+    email: String
+#    age: Int
+}
+
+type Product {
+    id_product: ID,
+    type_instrument: String,
+    type_product: String,
+    name: String,
+    cost: Int,
+    manufacturer: String,
+    countStock: Int
+
+}
+
+type Query {
+    getAllUser: [User]
+    getUser(id: ID): User
+    getAllProductsCart(id: ID): [Product]
+    getAllProducts: [Product]
+}
+type Mutation {
+    createUser(input: UserInput): User
+    deleteUser(input: UserInput): User
 }

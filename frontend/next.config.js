@@ -2,7 +2,19 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    fontLoaders: [
+      { loader: '@next/font/google', options: { subsets: ['latin'] } },
+    ],
   },
+  env: {
+    NEXT_PUBLIC_API_SERVER_URL: process.env.NEXT_PUBLIC_API_SERVER_URL,
+    BASE_URL: process.env.NEXT_PUBLIC_BASE_URL
+  },
+
+  publicRuntimeConfig: {
+    NEXT_PUBLIC_API_SERVER_URL: process.env.NEXT_PUBLIC_API_SERVER_URL,
+    BASE_URL: process.env.NEXT_PUBLIC_BASE_URL
+  }
 }
 
 module.exports = nextConfig
