@@ -7,7 +7,7 @@ export interface SearchProps {
 
 const Search: FC<SearchProps> = () => {
     return (
-        <div className={styles.search} data-testid="Page">
+        <div className={styles.search} data-testid="TemplateName">
             <input placeholder={'Поиск по сайту'} className={styles.search__input} type="text"/>
             <Image width={12} height={14} src={'assets/images/иконка поиска.svg'} alt={'icon'}/>
         </div>

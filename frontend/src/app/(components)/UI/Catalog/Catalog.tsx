@@ -7,7 +7,7 @@ export interface CatalogProps {
 
 const Catalog: FC<CatalogProps> = () => {
     return (
-        <div className={styles.catalog} data-testid="Page">
+        <div className={styles.catalog} data-testid="TemplateName">
             <button className={styles.catalog__btn}>
                 <Image width={15} height={12} src={'assets/images/catalogBtnIcon.svg'} alt={'icon'}/>
                 Каталог

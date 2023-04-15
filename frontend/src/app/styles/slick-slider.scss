@@ -1,3 +1,31 @@
 button.slick-arrow.slick-next:before, button.slick-arrow.slick-prev:before {
-	color: #000 !important;
+}
+button.slick-arrow {
+	width: 46px;
+	height: 45px;
+	background-color: #FFF8FE;
+}
+button.slick-arrow.slick-prev.slick-disabled:before, button.slick-arrow.slick-next.slick-disabled:before {
+	opacity: 50%;
+}
+button.slick-arrow {
+	z-index: 2;
+}
+button.slick-arrow.slick-prev:before {
+	content: url('/assets/images/prevArrow.svg');
+}
+
+button.slick-arrow.slick-next:before {
+	content: url("/assets/images/nextArrow.svg");
+}
+
+ul.slick-dots li button:before {
+	font-size: 10px;
+	opacity: .15;
+	color: #A0148E;
+}
+ul.slick-dots li.slick-active button:before {
+	opacity: .75;
+	font-size: 13px;
+	color: #A0148E;
 }

@@ -14,17 +14,17 @@ const CardProduct: FC<CardProductProps> = ({nameImage, data}) => {
         <div className={styles.cardProduct}>
             <div className={styles.cardProduct__wrapper}>
                 {
-                    !loading && <Image width={100} height={100} src={image} alt={'icon'}/>
+                    !loading && <Image width={220} height={230} src={image} alt={'icon'}/>
                 }
                 <div className={styles.cardProduct__fav}>
-                    <Image width={22} height={19} src={'assets/images/favIcon.svg'} alt={'icon'}/>
+                    <Image width={22} height={19} src={'/assets/images/favIcon.svg'} alt={'icon'}/>
                 </div>
                 <div className={styles.cardProduct__descr}>
                     <h3 className={styles.cardProduct__descr__title}>{data.name}</h3>
                     <div className={styles.cardProduct__descr__info}>
-                        <div className={styles.cardProduct__descr__cost}>{data.cost}</div>
+                        <div className={styles.cardProduct__descr__cost}>{data.cost + ' руб.'}</div>
                         <button className={styles.cardProduct__descr__cartBtn}>
-                            <Image width={23} height={20} src={'assets/images/cartIcon.svg'} alt={'icon'}/>
+                            <Image width={23} height={20} src={'/assets/images/cartIcon.svg'} alt={'icon'}/>
                         </button>
                     </div>
                 </div>

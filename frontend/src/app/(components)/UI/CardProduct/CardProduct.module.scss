@@ -1,7 +1,58 @@
 .cardProduct {
-	width: 283px;
-	height: 422px;
+	max-width: 280px;
+	width: 100%;
+	height: 400px;
 
 	border: 3px solid #FFF8FE;
 	border-radius: 3px;
+	position: relative;
+
+	&__wrapper  {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	&__fav {
+		position: absolute;
+		top: 10px;
+		right: 20px;
+		cursor: pointer;
+	}
+	&__descr {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 13px 0;
+
+		&__cost {
+			background-color: #FFF8FE;
+			width: 110px;
+			height: 46px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 5px
+		;
+		}
+
+		&__info {
+			display: flex;
+			gap: 0 30px;
+		}
+
+		&__cartBtn {
+			width: 45px;
+			height: 45px;
+			border: 3px solid #F7ECF5;
+			border-radius: 2px;
+			background: transparent;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+	}
 }
