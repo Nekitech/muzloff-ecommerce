@@ -1,9 +1,7 @@
 import {connectDB} from "../database/connectDB.js";
 
-class PersonController {
+class PersonModel {
     nameTablePersons = "person";
-    nameTableCart = "cart";
-    nameTableProducts = "products"
 
     getAllUser = async () => {
         const {rows: users} = await connectDB.query(`SELECT * FROM ${this.nameTablePersons}`);
@@ -27,19 +25,8 @@ class PersonController {
         return deleted_user[0]
     }
 
-    getAllProductsCart = async(id) => {
-        const {rows: cart} = await connectDB.query(`SELECT * FROM ${this.nameTableCart}
-                                                    INNER JOIN ${this.nameTableProducts} 
-                                                    ON ${this.nameTableCart}.product_id = ${this.nameTableProducts}.id_product
-                                                    WHERE person_id = $1`, [id]);
-        return cart
-    }
-    getAllProducts = async () => {
-        const {rows: users} = await connectDB.query(`SELECT * FROM ${this.nameTableProducts}`);
-        return users
-    }
 }
 
-export const PersonalController =  new PersonController();
+export const PersonController =  new PersonModel();
 
 

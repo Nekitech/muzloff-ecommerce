@@ -21,6 +21,9 @@
 		right: 20px;
 		cursor: pointer;
 	}
+	&__img {
+		user-select: none;
+	}
 	&__descr {
 		display: flex;
 		flex-direction: column;

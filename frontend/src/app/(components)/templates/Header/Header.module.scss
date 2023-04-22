@@ -4,7 +4,23 @@
 
 	&__wrapper {
 		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__menu {
+		display: flex;
 		align-items: center;
 		gap: 0 27px;
+	}
+
+	&__navUser {
+		display: flex;
+
+		&__item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 }

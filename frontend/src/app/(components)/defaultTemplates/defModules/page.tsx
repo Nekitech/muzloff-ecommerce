@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import styles from './TemplateName.module.scss';
+import styles from './page.module.scss';
 
 export interface TemplateNameProps {
 }

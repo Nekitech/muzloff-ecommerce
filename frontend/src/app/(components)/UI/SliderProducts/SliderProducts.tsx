@@ -1,10 +1,10 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from './SliderProducts.module.scss';
 import CardProduct from "@/app/(components)/UI/CardProduct/CardProduct";
 // @ts-ignore
 import Slider from 'react-slick'
-import client from "@/apollo/ApolloClient";
-import {gql} from "@apollo/client";
+
+import {ProductService} from "@/service/product.service";
 export interface SliderProductsProps {
 
 }
@@ -12,27 +12,12 @@ export interface SliderProductsProps {
 const SliderProducts: FC<SliderProductsProps> = () => {
     const [sliderInfo, setSliderInfo] = useState([]);
 
-    const getAllProducts = async () => {
-        return await client.query({
-            query: gql`
-                query {
-                    getAllProducts {
-                        id_product,
-                        type_instrument,
-                        type_product,
-                        name,
-                        cost,
-                        manufacturer,
-                        countStock
-                    }
-                }
-            `,
-        });
-    }
-    getAllProducts().then(res => {
-        const {data, error, loading} = res;
-        setSliderInfo(data.getAllProducts)
-    })
+    useEffect( () => {
+        (async function () {
+            const {data, error, loading} = await ProductService.getAllProducts();
+            setSliderInfo(data.getAllProducts)
+        })()
+    }, [])
 
     const settings = {
         dots: true,

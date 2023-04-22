@@ -7,8 +7,8 @@
 
     "modules": {
       "customTemplates": {
-        "component": "src/app/(components)/defaultTemplates/defModules/TemplateName.tsx",
-        "style": "src/app/(components)/defaultTemplates/defModules/TemplateName.module.scss"
+        "component": "src/app/(components)/defaultTemplates/defModules/page.tsx",
+        "style": "src/app/(components)/defaultTemplates/defModules/page.module.scss"
       },
       "path": "src/app/(components)/(modules)",
       "withStyle": true,

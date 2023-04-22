@@ -1,4 +1,11 @@
 import './styles/globals.scss'
+import {Manrope} from "@next/font/google";
+import Header from "@/app/(components)/templates/Header/Header";
+
+const font = Manrope({
+    weight: '400',
+    preload: false,
+})
 
 export default function RootLayout({
   children,
@@ -20,8 +27,14 @@ export default function RootLayout({
       </head>
 
       <head />
-      <body>{
-          children
+      <body className={font.className}>{
+          <>
+              <Header/>
+              {
+                  children
+              }
+          </>
+
       }</body>
     </html>
   )

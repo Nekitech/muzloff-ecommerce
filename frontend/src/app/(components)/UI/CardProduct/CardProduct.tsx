@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import styles from './CardProduct.module.scss';
 import Image from "next/image";
 import useImage from "@/hooks/useImage";
+import Link from "next/link";
 
 export interface CardProductProps {
     nameImage: string,
@@ -13,9 +14,12 @@ const CardProduct: FC<CardProductProps> = ({nameImage, data}) => {
     return (
         <div className={styles.cardProduct}>
             <div className={styles.cardProduct__wrapper}>
-                {
-                    !loading && <Image width={220} height={230} src={image} alt={'icon'}/>
-                }
+                <Link href={`/catalog/${data.id_product}`}>
+                    {
+                        !loading && <Image className={styles.cardProduct__img} width={220} height={230} src={image} alt={'icon'}/>
+                    }
+                </Link>
+
                 <div className={styles.cardProduct__fav}>
                     <Image width={22} height={19} src={'/assets/images/favIcon.svg'} alt={'icon'}/>
                 </div>

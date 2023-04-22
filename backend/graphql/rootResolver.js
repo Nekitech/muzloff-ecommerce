@@ -1,30 +1,36 @@
-import {PersonalController} from "../controller/models.js";
+import {PersonController} from "../controller/User.model.js";
 import {getPathFile} from "../helpers/nodeHelpers.js";
+import {ProductController} from "../controller/Product.model.js";
 
 
 export const root = {
     getAllUser: () => {
-        return PersonalController.getAllUser()
-            .catch(err => console.log('Throw error in controllers - ', getPathFile(import.meta.url), `\n ${err}`))
+        return PersonController.getAllUser()
+            .catch(err => console.log('Throw error in controllers - getAllUser ', getPathFile(import.meta.url), `\n ${err}`))
     },
     getUser: ({id}) => {
-        return PersonalController.getUser(id).then(res => res)
-            .catch(err => console.log('Throw error in controllers - ', getPathFile(import.meta.url), `\n ${err}`))
+        return PersonController.getUser(id).then(res => res)
+            .catch(err => console.log('Throw error in controllers - getUser ', getPathFile(import.meta.url), `\n ${err}`))
     },
     createUser: ({input}) => {
-        return PersonalController.createUser(input)
-            .catch(err => console.log('Throw error in controllers - ', getPathFile(import.meta.url), `\n ${err}`))
+        return PersonController.createUser(input)
+            .catch(err => console.log('Throw error in controllers - createUser ', getPathFile(import.meta.url), `\n ${err}`))
     },
     deleteUser: ({input}) => {
-        return PersonalController.deleteUser(input)
-            .catch(err => console.log('Throw error in controllers - ', getPathFile(import.meta.url), `\n ${err}`))
+        return PersonController.deleteUser(input)
+            .catch(err => console.log('Throw error in controllers - deleteUser ', getPathFile(import.meta.url), `\n ${err}`))
     },
+
     getAllProductsCart: ({id}) => {
-        return PersonalController.getAllProductsCart(id).then(res => res)
-            .catch(err => console.log('Throw error in controllers - ', getPathFile(import.meta.url), `\n ${err}`))
+        return ProductController.getAllProductsCart(id).then(res => res)
+            .catch(err => console.log('Throw error in controllers - getAllProductsCart ', getPathFile(import.meta.url), `\n ${err}`))
     },
     getAllProducts: () => {
-        return PersonalController.getAllProducts()
-            .catch(err => console.log('Throw error in controllers - ', getPathFile(import.meta.url), `\n ${err}`))
+        return ProductController.getAllProducts()
+            .catch(err => console.log('Throw error in controllers - getAllProducts ', getPathFile(import.meta.url), `\n ${err}`))
     },
+    getProduct: ({id}) => {
+        return ProductController.getProduct(id).then(res => res)
+            .catch(err => console.log('Throw error in controllers - getProduct ', getPathFile(import.meta.url), `\n ${err}`))
+    }
 }

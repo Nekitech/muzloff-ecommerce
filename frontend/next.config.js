@@ -14,6 +14,15 @@ const nextConfig = {
   publicRuntimeConfig: {
     NEXT_PUBLIC_API_SERVER_URL: process.env.NEXT_PUBLIC_API_SERVER_URL,
     BASE_URL: process.env.NEXT_PUBLIC_BASE_URL
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ]
   }
 }
 

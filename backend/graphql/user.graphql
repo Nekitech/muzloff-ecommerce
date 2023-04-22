@@ -19,9 +19,8 @@ type Product {
     type_product: String,
     name: String,
     cost: Int,
-    manufacturer: String,
+    brand: String,
     countStock: Int
-
 }
 
 type Query {
@@ -29,6 +28,7 @@ type Query {
     getUser(id: ID): User
     getAllProductsCart(id: ID): [Product]
     getAllProducts: [Product]
+    getProduct(id: ID): Product
 }
 type Mutation {
     createUser(input: UserInput): User
