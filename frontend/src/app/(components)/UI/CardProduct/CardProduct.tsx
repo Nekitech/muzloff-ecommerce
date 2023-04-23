@@ -5,18 +5,19 @@ import useImage from "@/hooks/useImage";
 import Link from "next/link";
 
 export interface CardProductProps {
-    nameImage: string,
     data: any
 }
 
-const CardProduct: FC<CardProductProps> = ({nameImage, data}) => {
-    const {image, error, loading} = useImage(nameImage);
+const CardProduct: FC<CardProductProps> = ({ data}) => {
+    // const {image, error, loading} = useImage(nameImage);
+
     return (
         <div className={styles.cardProduct}>
             <div className={styles.cardProduct__wrapper}>
                 <Link href={`/catalog/${data.id_product}`}>
                     {
-                        !loading && <Image className={styles.cardProduct__img} width={220} height={230} src={image} alt={'icon'}/>
+                        <Image className={styles.cardProduct__img} width={220} height={230}
+                                           src={`http://localhost:3001/uploads/${(data.images) ? data?.images[0] : 'guitar.png'}`} alt={'icon'}/>
                     }
                 </Link>
 

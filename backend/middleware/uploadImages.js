@@ -2,10 +2,10 @@ import multer from 'multer'
 
 const storage = multer.diskStorage({
     destination(req, file, cb) {
-        cb(null, 'static/images')
+        cb(null, 'uploads/images')
     },
     filename(req, file, cb) {
-        cb(null, new Date().toISOString() + '-' + file.originalname)
+        cb(null, file.originalname)
     }
 })
 
@@ -20,5 +20,5 @@ const fileFilter = (req, file, cb) => {
 }
 
 export default multer({
-    storage, fileFilter
+    storage
 })

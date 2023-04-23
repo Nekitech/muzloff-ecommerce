@@ -4,21 +4,25 @@ import {graphqlHTTP} from "express-graphql";
 import {schema} from "./graphql/schema.js";
 import {root} from "./graphql/rootResolver.js";
 import router from "./routes/index.js";
+import bodyParser from 'body-parser'
 
 
 const app = express();
-const PORT = process.env.PORT || 3001
-
+const PORT = process.env.PORT || 3001;
 
 
 app.use(cors())
+app.use(bodyParser.json({limit: '50mb'}))
+app.use('/uploads', express.static('uploads/images'));
+app.use('/api', router)
+
 app.use('/graphql', graphqlHTTP({
     graphiql: true,
     schema: schema,
-    rootValue: root
+    rootValue: root,
 
 }))
-app.use('/api', router)
+
 
 app.get('/', (req, res) => res.send('Hello there!'));
 

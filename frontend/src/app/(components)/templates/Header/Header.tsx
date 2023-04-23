@@ -25,6 +25,10 @@ const Header: FC<HeaderProps> = () => {
                             <Image width={22} height={19} src={'assets/images/favIcon.svg'} alt={'icon'}/>
                             <p>{'Избранное'}</p>
                         </Link>
+                        <Link href={'/profile'} className={styles.header__navUser__item}>
+                            <Image width={22} height={19} src={'assets/images/ProfileIcon.svg'} alt={'icon'}/>
+                            <p>{'Профиль'}</p>
+                        </Link>
                     </div>
                 </div>
             </div>

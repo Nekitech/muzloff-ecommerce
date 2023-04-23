@@ -34,7 +34,7 @@ const SliderProducts: FC<SliderProductsProps> = () => {
                 {
                     sliderInfo?.map((data: any) => {
                         return (
-                            <CardProduct key={data?.id_product} data={data} nameImage={'guitar.png'}/>
+                            <CardProduct key={data?.id_product} data={data}/>
                         )
                     })
                 }

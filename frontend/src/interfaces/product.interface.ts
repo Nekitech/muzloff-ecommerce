@@ -7,3 +7,12 @@ export interface IProduct {
     brand: string,
     countStock: number
 }
+
+export interface IProductInput {
+    type_instrument: string,
+    type_product: string,
+    name: string,
+    cost: number,
+    brand: string,
+    images: string[]
+}
