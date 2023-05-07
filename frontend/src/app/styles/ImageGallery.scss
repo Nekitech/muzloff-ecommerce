@@ -1,0 +1,26 @@
+
+
+.image-gallery-slide {
+	width: 514px;
+	height: 512px;
+
+
+
+	& img {
+		width: 100%;
+		min-height: 100% !important;
+		object-fit: cover !important;
+		overflow: hidden;
+	}
+}
+.image-gallery-thumbnail .image-gallery-thumbnail-inner{
+	height: fit-content;
+
+	& .image-gallery-thumbnail-image {
+		height: 80px;
+		object-fit: cover;
+	}
+}
+.image-gallery-slides {
+
+}

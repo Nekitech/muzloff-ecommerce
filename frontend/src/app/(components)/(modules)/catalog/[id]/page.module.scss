@@ -1,4 +1,25 @@
 .productPage {
 
 	margin-top: 50px;
+
+
+	&__wrapper {
+		display: grid;
+		width: 100%;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 3fr 1fr;
+
+		&__info {
+
+
+		}
+		&__specs {
+
+		}
+	}
+
+	&__descr {
+
+	}
+
 }

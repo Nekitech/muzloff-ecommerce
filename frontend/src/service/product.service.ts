@@ -44,7 +44,8 @@ export const ProductService = {
     async addProduct({type_product, type_instrument, name, cost, brand, images}: IProductInput) {
         return await client.mutate({
             mutation: gql`
-                mutation Product($type_instrument: String,  
+                mutation Product(
+                    $type_instrument: String,  
                     $type_product: String,
                     $name: String,
                     $cost: Int,

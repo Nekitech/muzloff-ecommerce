@@ -1,0 +1,90 @@
+.dropdownCheckbox {
+
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+		user-select: none;
+
+		&__icon {
+			width: 12px;
+			height: 6px;
+			transform: rotate(180deg);
+			transition: 0.5s all;
+
+
+		}
+
+	}
+
+	&__body {
+
+		margin-top: 10px;
+		position: relative;
+		overflow-x: hidden;
+		height: 0;
+		transition: 0.2s all;
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			width: 4px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: #A0148E;
+			border-radius: 3px;
+		}
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&__listItem {
+
+			&__customCheckbox {
+				position: absolute;
+				z-index: -1;
+				opacity: 0;
+
+				& + label {
+					display: inline-flex;
+					align-items: center;
+					user-select: none;
+					pointer-events: none;
+				}
+
+				& + label::before {
+					content: '';
+					display: inline-block;
+					pointer-events: all;
+					cursor: pointer;
+
+					position: relative;
+					width: 1em;
+					height: 1em;
+					left: 0;
+					top: 50%;
+
+					border: 3px solid #F1DAEE;
+					border-radius: 2px;
+					margin-right: 0.5em;
+
+				}
+
+				&:checked + label::before {
+					background: transparent url("/assets/images/dropdownCheckboxIconChecked.svg") no-repeat center center;
+				}
+			}
+		}
+	}
+
+	&__activeDropdownIcon {
+		transform: rotate(0deg);
+		transition: 0.5s all;
+	}
+	&__activeDropdownBody {
+		height: 100px;
+		transition: 0.2s all;
+
+	}
+}

@@ -24,6 +24,8 @@ type User {
     name: String,
     phone_number: String,
     email: String
+    role_id: ID,
+    password: String
 #    age: Int
 }
 input UserInput {

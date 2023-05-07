@@ -1,0 +1,46 @@
+.popupForm {
+
+	width: 400px;
+	height: fit-content;
+	background-color: #fff;
+	border-radius: 30px;
+	padding: 10px 20px;
+
+	&__title {
+		margin-bottom: 20px;
+	}
+
+	&__form {
+		display: flex;
+		justify-content: space-between;
+
+		flex-direction: column;
+		height: fit-content;
+
+		&__inputs {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			gap: 20px 0;
+			margin-bottom: 70px;
+
+			& input {
+				width: 100%;
+				height: 30px;
+				border: 2px solid #A0148E;
+				border-radius: 4px;
+				padding: 0 5px;
+			}
+		}
+		&__btnSubmit {
+			width: fit-content;
+			height: 50px;
+			padding: 5px 10px;
+			background-color: #2D0027;
+			color: #fff;
+			align-self: center;
+			border-radius: 10px;
+		}
+	}
+
+}

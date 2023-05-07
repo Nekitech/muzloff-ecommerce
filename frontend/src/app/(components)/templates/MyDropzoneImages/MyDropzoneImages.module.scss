@@ -1,0 +1,72 @@
+.myDropzoneImages {
+	margin-top: 30px;
+	width: fit-content;
+
+	&__dropzone {
+		width: 200px;
+		height: 130px;
+		background: rgb(255, 248, 254);
+		border-radius: 10px;
+		border: 1px solid #3b3636;
+		color: #A0148E;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		cursor: pointer;
+	}
+	&__dropzoneActive {
+		background: #c0a4e5;
+	}
+
+}
+
+.thumb {
+	display: inline-flex;
+	border-Radius: 2px;
+	border: 1px solid #eaeaea;
+	margin-Bottom: 8px;
+	margin-Right: 8px;
+	width: 200px;
+	height: 300px;
+
+	padding: 4px;
+	box-sizing: border-box;
+	position: relative;
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-top: 16px;
+		width: 100%;
+	}
+
+	&__inner {
+		display: flex;
+		min-Width: 0;
+		overflow: hidden;
+	}
+
+	&__img {
+		display: block;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__closeIcon {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		top: -5px;
+		right: -5px;
+		background: #A0148E;
+		color: #fff;
+		cursor: pointer;
+		& > img {
+			margin-top: 3px;
+		}
+	}
+
+}

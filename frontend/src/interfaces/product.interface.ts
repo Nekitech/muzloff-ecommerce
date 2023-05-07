@@ -5,7 +5,8 @@ export interface IProduct {
     name: string,
     cost: number,
     brand: string,
-    countStock: number
+    countStock: number,
+    images: string[]
 }
 
 export interface IProductInput {

@@ -1,16 +1,16 @@
 import {Router} from "express";
 import {default as uploadImages} from '../middleware/uploadImages.js'
 
-const router = new Router();
+const uploadImagesRouter = new Router();
 
-
-router.post('/upload', uploadImages.array('image', 10), (req, res) => {
+uploadImagesRouter.post('/upload', uploadImages.array('image', 10), (req, res) => {
     try {
-        console.log('приветули')
+        console.log('Фотографии загружены');
+
     }
     catch (error) {
         console.log(error)
     }
 })
 
-export default router
+export default uploadImagesRouter

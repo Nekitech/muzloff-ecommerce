@@ -22,9 +22,9 @@ class ProductModel {
 
     addProduct = async (req) => {
         const {name, type_instrument, type_product, cost, images, brand} = req;
-        console.log(req);
         const {rows: return_product} = await connectDB.query(`INSERT INTO ${this.nameTableProducts} 
-                        (name, type_instrument, type_product, cost, brand, images) values ($1, $2, $3, $4, $5, $6) RETURNING *`, [name, type_instrument, type_product, cost, brand, images])
+                        (name, type_instrument, type_product, cost, brand, images) values ($1, $2, $3, $4, $5, $6) RETURNING *`,
+            [name, type_instrument, type_product, cost, brand, images])
         return return_product[0]
     }
 }

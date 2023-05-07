@@ -9,6 +9,7 @@ export interface SliderProductsProps {
 
 }
 
+
 const SliderProducts: FC<SliderProductsProps> = () => {
     const [sliderInfo, setSliderInfo] = useState([]);
 
