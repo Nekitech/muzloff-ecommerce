@@ -9,16 +9,13 @@ export const root = {
         return PersonController.getAllUser()
             .catch(err => handlerErrorsResolvers(err, 'getAllUser'))
     },
-    getUser: ({id}) => {
-        return PersonController.getUser(id).then(res => res)
-            .catch(err => handlerErrorsResolvers(err, 'getUser'))
-    },
+
     createUser: ({input}) => {
         return PersonController.createUser(input)
             .catch(err => handlerErrorsResolvers(err, 'createUser'))
     },
-    deleteUser: ({input}) => {
-        return PersonController.deleteUser(input)
+    deleteUser: ({id}) => {
+        return PersonController.deleteUser(id)
             .catch(err => handlerErrorsResolvers(err, 'deleteUser'))
     },
 
@@ -34,8 +31,25 @@ export const root = {
         return ProductController.getProduct(id).then(res => res)
             .catch(err => handlerErrorsResolvers(err, 'getProduct'))
     },
-    addProduct: ({input}) => {
-        return ProductController.addProduct(input)
+
+}
+
+export const authRoot = {
+    getUser: ({id}) => {
+        return PersonController.getUser(id).then(res => res)
+            .catch(err => handlerErrorsResolvers(err, 'getUser'))
+    },
+    addProduct: ({input, id}) => {
+        return ProductController.addProduct({...input, id})
             .catch(err => handlerErrorsResolvers(err, 'addProduct'))
-    }
+    },
+    deleteProduct: ({id_product}) => {
+        console.log(id_product)
+        return ProductController.deleteProduct(id_product)
+            .catch(err => handlerErrorsResolvers(err, 'deleteProduct'))
+    },
+    getProductsByUser: ({id}) => {
+        return ProductController.getProductsByUser(id).then(res => res)
+            .catch(err => handlerErrorsResolvers(err, 'getProductsByUser'))
+    },
 }

@@ -7,6 +7,7 @@ import CardProduct from "@/app/(components)/UI/CardProduct/CardProduct";
 import DropdownCheckbox from "@/app/(components)/UI/DropdownCheckbox/DropdownCheckbox";
 import {ProductService} from "@/service/product.service";
 import {IProduct} from "@/interfaces/product.interface";
+import SliderProducts from "@/app/(components)/UI/SliderProducts/SliderProducts";
 
 const CatalogPage: FC = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
@@ -44,6 +45,7 @@ const CatalogPage: FC = () => {
                             }
                         </div>
                     </div>
+
                 </div>
 
             </div>

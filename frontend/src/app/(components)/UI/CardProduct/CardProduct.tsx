@@ -3,6 +3,7 @@ import styles from './CardProduct.module.scss';
 import Image from "next/image";
 import useImage from "@/hooks/useImage";
 import Link from "next/link";
+import {urlServer} from "@/apollo/ApolloClient";
 
 export interface CardProductProps {
     data: any
@@ -17,7 +18,7 @@ const CardProduct: FC<CardProductProps> = ({ data}) => {
                 <Link href={`/catalog/${data.id_product}`}>
                     {
                         <Image className={styles.cardProduct__img} width={220} height={230}
-                                           src={`http://localhost:3001/uploads/${(data.images) ? data?.images[0] : 'guitar.png'}`} alt={'icon'}/>
+                                           src={`${urlServer}/uploads/${(data.images) ? data?.images[0] : 'guitar.png'}`} alt={'icon'}/>
                     }
                 </Link>
 

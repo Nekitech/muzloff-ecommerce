@@ -1,4 +1,5 @@
 import axios from "axios";
+import {urlServer} from "@/apollo/ApolloClient";
 
 export const uploadImages = async (files) => {
     const formData = new FormData()
@@ -14,7 +15,7 @@ export const uploadImages = async (files) => {
             },
         }
 
-        const {data} = await axios.post('http://localhost:3001/api/images/upload', formData, config);
+        const {data} = await axios.post(`${urlServer}/api/upload`, formData, config);
         return data
 
     } catch (error) {

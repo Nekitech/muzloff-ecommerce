@@ -25,6 +25,7 @@
 	}
 	&__img {
 		user-select: none;
+		object-fit: contain;
 	}
 	&__descr {
 		display: flex;

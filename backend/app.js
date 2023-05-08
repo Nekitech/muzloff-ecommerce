@@ -2,9 +2,11 @@ import express from 'express'
 import cors from 'cors'
 import {graphqlHTTP} from "express-graphql";
 import {schema} from "./graphql/schema.js";
-import {root} from "./graphql/rootResolver.js";
+import {authRoot, root} from "./graphql/rootResolver.js";
 import authRouter from "./routes/auth.js";
 import uploadImagesRouter from "./routes/upload.js";
+import {auth} from "./middleware/auth.middleware.js";
+import {applyMiddleware} from "graphql-middleware";
 
 
 const app = express();
@@ -22,6 +24,17 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true,
     schema: schema,
     rootValue: root,
+}))
+
+
+
+const schemaWithMiddleware = applyMiddleware(schema, auth)
+
+app.use('/authApi', auth, graphqlHTTP({
+    graphiql: true,
+    schema: schemaWithMiddleware,
+    rootValue: authRoot,
+
 
 }))
 // Auth

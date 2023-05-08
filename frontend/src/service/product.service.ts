@@ -1,4 +1,4 @@
-import client from "@/apollo/ApolloClient";
+import {client, clientAuth} from "@/apollo/ApolloClient";
 import {gql} from "@apollo/client";
 import {IProductInput} from "@/interfaces/product.interface";
 
@@ -21,6 +21,7 @@ export const ProductService = {
             `
         });
     },
+
     async getProduct(id: number) {
         return await client.query({
             query: gql`
@@ -41,8 +42,27 @@ export const ProductService = {
             },
         });
     },
+
+    async getProductsByUser() {
+        return await clientAuth.query({
+            query: gql`
+                query {
+                    getProductsByUser {
+                        id_product,
+                        type_instrument,
+                        type_product,
+                        name,
+                        cost,
+                        brand,
+                        images
+                    }
+                }
+            `,
+        });
+    },
+
     async addProduct({type_product, type_instrument, name, cost, brand, images}: IProductInput) {
-        return await client.mutate({
+        return await clientAuth.mutate({
             mutation: gql`
                 mutation Product(
                     $type_instrument: String,  

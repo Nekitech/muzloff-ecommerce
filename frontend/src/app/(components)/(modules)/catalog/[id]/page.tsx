@@ -8,6 +8,7 @@ import {IProduct} from "@/interfaces/product.interface";
 import Slider from "react-slick";
 import CardProduct from "@/app/(components)/UI/CardProduct/CardProduct";
 import ImageGalleryCardPage from "@/app/(components)/UI/ImageGalleryCardPage/ImageGalleryCardPage";
+import SliderProducts from "@/app/(components)/UI/SliderProducts/SliderProducts";
 
 interface IProductPageProps {
     params: {
@@ -47,8 +48,8 @@ const Page: FC<IProductPageProps> = ({params}) => {
                     <div className={styles.productPage__descr}>
                         Описание
                     </div>
-
                 </div>
+                    <SliderProducts/>
             </div>
         </div>
     );

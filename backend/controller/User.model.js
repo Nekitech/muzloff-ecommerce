@@ -1,4 +1,5 @@
 import {connectDB} from "../database/connectDB.js";
+import {generateWebToken} from "../helpers/generateWebToken.js";
 
 class PersonModel {
     nameTablePersons = "person";
@@ -17,6 +18,7 @@ class PersonModel {
     }
 
     getUser = async (id) => {
+
         const {rows: user} = await connectDB.query(`SELECT * FROM ${this.nameTablePersons} WHERE id = $1`, [id])
         return user[0]
     }
@@ -36,7 +38,7 @@ class PersonModel {
         return user[0]
     }
 
-    deleteUser = async ({id}) => {
+    deleteUser = async (id) => {
 
         const {rows: deleted_user} = await connectDB.query(`DELETE FROM ${this.nameTablePersons} WHERE id = $1 RETURNING *`, [id])
         return deleted_user[0]
@@ -56,10 +58,12 @@ class PersonModel {
     auth = async (req, res) => {
         const {number: phone_number, password} = req.body;
         const user = await this.getUserBy({phone_number, password}, 'AND');
+        const token = generateWebToken(user.id, user.role)
+
         if(!user)
             return res.status(400).send('Неправильно введен логин или пароль!')
 
-        res.status(200).send('Вы авторизованы! Товарищ' + ` ${user.name}`)
+        res.status(200).json({token})
     }
 
 }

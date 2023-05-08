@@ -13,8 +13,7 @@ const PopupForm: FC<PopupFormProps> = ({typePopupForm}) => {
     const {handleSubmit, register, reset} = useForm();
 
     const sendForm = async (data: any) => {
-        console.log(data)
-        const return_data = (typePopupForm === 'auth') ? await axios.post(`${urlServer}/auth`, {
+        const user = (typePopupForm === 'auth') ? await axios.post(`${urlServer}/auth`, {
             number: data.number,
             password: data.password
 
@@ -22,12 +21,13 @@ const PopupForm: FC<PopupFormProps> = ({typePopupForm}) => {
             ...data
         })
 
-        if(return_data.status === 200) {
-            alert(return_data.data)
+        if(user.status === 200) {
+            console.log(user)
+            window.localStorage.setItem('token', user.data.token)
             window.location.reload();
         }
         else {
-            alert(return_data)
+            alert(user)
         }
 
     }
@@ -53,7 +53,7 @@ const PopupForm: FC<PopupFormProps> = ({typePopupForm}) => {
 
                     <label>
                         Phone number
-                        <input placeholder={'+79999999'} type="number" {...register("number")}/>
+                        <input placeholder={'+79999999'} type="tel" {...register("number")}/>
                     </label>
                     <label>
                         Password

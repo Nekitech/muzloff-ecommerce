@@ -6,6 +6,7 @@ const uploadImagesRouter = new Router();
 uploadImagesRouter.post('/upload', uploadImages.array('image', 10), (req, res) => {
     try {
         console.log('Фотографии загружены');
+        res.send('success')
 
     }
     catch (error) {

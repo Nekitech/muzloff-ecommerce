@@ -1,5 +1,5 @@
 "use client"
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from './Header.module.scss';
 import Search from "@/app/(components)/UI/Search/Search";
 import Image from "next/image";
@@ -7,13 +7,16 @@ import Catalog from "@/app/(components)/UI/Catalog/Catalog";
 import Link from "next/link";
 import Overlay from "@/app/(components)/UI/Overlay/Overlay";
 import PopupForm from "@/app/(components)/UI/PopupForm/PopupForm";
+import {ProductService} from "@/service/user.service";
+import {IUserInfo} from "@/interfaces/user.interface";
 
 export interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = () => {
 
-    const [isAuth, setIsAuth] = useState(false)
+    const [user, setUser] = useState<IUserInfo>();
+
     const [isOpenPopup, setIsOpenPopup] = useState({
         status: false,
         popup: 'auth'
@@ -23,6 +26,24 @@ const Header: FC<HeaderProps> = () => {
         status: isOpen,
         popup: ''
     });
+
+    useEffect(  () => {
+        (async function () {
+            const {data} = await ProductService.getUser();
+            console.log(data)
+            if(data.getUser) {
+                const {email, name, phone_number, role_id} = data.getUser;
+
+                setUser({
+                    email, name, phone_number, role_id
+                })
+
+            }
+        })()
+    }, []);
+    console.log(user)
+
+
 
     return (
         <>
@@ -42,12 +63,12 @@ const Header: FC<HeaderProps> = () => {
                                 <p>{'Избранное'}</p>
                             </Link>
                             {
-                                (isAuth) ?
+                                (user) ?
 
                                     <Link href={'/profile'} className={styles.header__navUser__item}>
                                         <Image width={22} height={19} src={'assets/images/ProfileIcon.svg'}
                                                alt={'icon'}/>
-                                        <p>{'Профиль'}</p>
+                                        <p>{user?.name}</p>
                                     </Link>
                                     : <>
 

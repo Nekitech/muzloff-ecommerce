@@ -7,7 +7,8 @@ type Product {
     cost: Int,
     brand: String,
     countStock: Int,
-    images: [String]
+    images: [String],
+    id_person: ID
 }
 
 input ProductInput {
@@ -38,13 +39,15 @@ input UserInput {
 
 type Query {
     getAllUser: [User]
-    getUser(id: ID): User
+    getUser: User
     getAllProductsCart(id: ID): [Product]
     getAllProducts: [Product]
     getProduct(id: ID): Product
+    getProductsByUser: [Product]
 }
 type Mutation {
     createUser(input: UserInput): User
-    deleteUser(input: UserInput): User
+    deleteUser(id: ID): User
     addProduct(input: ProductInput): Product
+    deleteProduct(id_product: ID): Product
 }

@@ -19,7 +19,7 @@ const AddProduct: FC<AddProductProps> = () => {
             const input = Object.assign(data, {
                 images: images.map((file: any) => file.path)
             });
-             await ProductService.addProduct(input);
+            await ProductService.addProduct(input);
             await uploadImages(images);
 
         }

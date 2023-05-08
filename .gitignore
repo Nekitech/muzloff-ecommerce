@@ -3,3 +3,5 @@
 /.idea
 /backend/.env
 /**/.env
+/backend/config
+/backend/uploads
